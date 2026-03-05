@@ -1,0 +1,33 @@
+/* ── Company branding ─────────────────────────────────────────────────────── */
+
+.company-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 24px;
+  background: #003366;
+}
+
+.company-header img {
+  height: 48px;
+  width: auto;
+}
+
+.company-header__tagline {
+  color: #ffffff;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* ── Support footer ───────────────────────────────────────────────────────── */
+
+.support-footer {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 13px;
+  color: #666;
+}
+
+.support-footer a {
+  color: #003366;
+}

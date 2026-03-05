@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ADFS Login – Preview</title>
+
+  <!--
+    CSS files listed here are read from disk and inlined into onload.js.
+    They also load normally when you open this file in a browser for preview.
+  -->
+  <link rel="stylesheet" href="./styles/main.css">
+</head>
+<body>
+
+  <!--
+    ============================================================
+    ADFS DOM ACTIONS
+    ============================================================
+    Each element below carries a data-adfs-* attribute telling
+    the generator what to do on the real ADFS login page.
+
+    Open this file in a browser to preview the end result.
+    The generator reads the annotations and produces onload.js.
+
+    Supported actions:
+      data-adfs-replace="#selector"          — replace ADFS element with this one
+      data-adfs-append-to="#selector"        — append this element into target
+      data-adfs-prepend-to="#selector"       — prepend this element into target
+      data-adfs-remove="#selector"           — remove target element entirely
+      data-adfs-set-text="#selector"         — overwrite target's text content
+      data-adfs-set-html="#selector"         — overwrite target's innerHTML
+      data-adfs-set-attr="#selector"         — set an attribute on target
+        data-adfs-attr="attributeName"
+        data-adfs-value="attributeValue"
+
+    Images: reference them as ./images/filename.ext
+    The generator rewrites these to --base-url/images/filename.ext in onload.js.
+    ============================================================
+  -->
+
+  <!-- Replace the ADFS login header with a branded version -->
+  <div data-adfs-replace="#loginHeader" class="company-header">
+    <img src="./images/logo.png" alt="Acme Corp">
+    <span class="company-header__tagline">Internal systems</span>
+  </div>
+
+  <!-- Language fix: swap Swedish label text to English -->
+  <span data-adfs-set-text="#userNameLabel">Email address</span>
+  <span data-adfs-set-text="#passwordLabel">Password</span>
+  <span data-adfs-set-text="#submitButton">Sign in</span>
+
+  <!-- Language fix: swap Swedish placeholder text to English -->
+  <meta data-adfs-set-attr="#userNameInput" data-adfs-attr="placeholder" data-adfs-value="your@email.com">
+  <meta data-adfs-set-attr="#passwordInput" data-adfs-attr="placeholder" data-adfs-value="Password">
+
+  <!-- Append a support footer below the login form -->
+  <div data-adfs-append-to="#loginArea" class="support-footer">
+    <p>Need help? Contact <a href="mailto:it@acme.com">IT Support</a></p>
+  </div>
+
+  <!-- Remove elements that should not be shown -->
+  <span data-adfs-remove="#forgotPasswordLink" style="display:none"></span>
+  <span data-adfs-remove="#createAccountLink" style="display:none"></span>
+
+  <!-- Custom JS behaviour loaded from a file -->
+  <script src="./scripts/custom.js"></script>
+
+  <!-- Inline JS — runs as-is inside onload.js -->
+  <script>
+    document.title = 'Acme Corp – Sign in';
+  </script>
+
+</body>
+</html>

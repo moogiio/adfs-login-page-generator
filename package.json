@@ -1,0 +1,13 @@
+{
+  "name": "adfs-login-generator",
+  "version": "1.0.0",
+  "description": "Generate ADFS onload.js from an annotated HTML template",
+  "scripts": {
+    "generate": "node generator.js src/template.html --base-url https://cdn.example.com/adfs/ --output dist/onload.js",
+    "validate": "node validate.js src/template.html dist/onload.js"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0",
+    "jsdom": "^25.0.0"
+  }
+}
