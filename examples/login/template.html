@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ADFS Login – Username/Password</title>
+  <link rel="stylesheet" href="./styles/main.css">
+</head>
+<body>
+
+  <!--
+    Username / Password login page
+    ==============================
+    This template builds a custom visual shell and moves the real ADFS
+    form elements into it. The original #loginForm stays in the DOM
+    (hidden) so hidden inputs and form POST still work.
+
+    Run:
+      node generator.js examples/login/template.html -o examples/login/dist/onload.js
+  -->
+
+  <!-- 1. Append our visual shell to body -->
+  <div data-adfs-append-to="body" class="shell" id="customShell">
+    <div class="login-card">
+
+      <div class="login-logo">
+        <img src="./images/logo.png" alt="Acme Corp">
+      </div>
+
+      <h1 class="login-title">Sign in</h1>
+
+      <div class="field-group">
+        <label for="userNameInput">Email address</label>
+        <div id="slot-username"></div>
+      </div>
+
+      <div class="field-group">
+        <label for="passwordInput">Password</label>
+        <div id="slot-password"></div>
+      </div>
+
+      <div id="slot-error" class="error-slot"></div>
+
+      <div id="slot-kmsi" class="kmsi-slot"></div>
+
+      <div id="slot-submit" class="submit-slot"></div>
+
+      <div class="support-footer">
+        <p>Need help? Contact <a href="mailto:it@acme.com">IT Support</a></p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 2. Move real ADFS elements into our shell slots -->
+  <div data-adfs-move-to="#userNameInput" data-adfs-into="#slot-username"></div>
+  <div data-adfs-move-to="#passwordInput" data-adfs-into="#slot-password"></div>
+  <div data-adfs-move-to="#submitButton"  data-adfs-into="#slot-submit"></div>
+  <div data-adfs-move-to="#errorText"     data-adfs-into="#slot-error"></div>
+  <div data-adfs-move-to="#kmsiInput"     data-adfs-into="#slot-kmsi"></div>
+
+  <!-- 3. Hide the original ADFS form (keeps hidden inputs + POST intact) -->
+  <div data-adfs-hide="#loginForm"></div>
+
+  <!-- 4. Clean up elements we don't need visible -->
+  <span data-adfs-remove="#forgotPasswordLink"></span>
+  <span data-adfs-remove="#createAccountLink"></span>
+
+  <script>
+    document.title = 'Acme Corp \u2013 Sign in';
+  </script>
+
+</body>
+</html>

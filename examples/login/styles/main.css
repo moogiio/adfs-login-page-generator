@@ -1,0 +1,130 @@
+/* ── Shell overlay ────────────────────────────────────────────────────────── */
+
+.shell {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f2f5;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ── Login card ──────────────────────────────────────────────────────────── */
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  padding: 40px 32px;
+}
+
+.login-logo {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.login-logo img {
+  height: 48px;
+  width: auto;
+}
+
+.login-title {
+  margin: 0 0 24px;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  color: #1a1a1a;
+}
+
+/* ── Form fields ─────────────────────────────────────────────────────────── */
+
+.field-group {
+  margin-bottom: 16px;
+}
+
+.field-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Style the real ADFS inputs that get moved into slots */
+.field-group input[type="text"],
+.field-group input[type="email"],
+.field-group input[type="password"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  font-size: 15px;
+  box-sizing: border-box;
+  transition: border-color 0.15s;
+}
+
+.field-group input:focus {
+  outline: none;
+  border-color: #003366;
+  box-shadow: 0 0 0 2px rgba(0, 51, 102, 0.15);
+}
+
+/* ── Error slot ──────────────────────────────────────────────────────────── */
+
+.error-slot {
+  min-height: 0;
+  color: #cc0000;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+/* ── KMSI checkbox ───────────────────────────────────────────────────────── */
+
+.kmsi-slot {
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: #555;
+}
+
+/* ── Submit ──────────────────────────────────────────────────────────────── */
+
+.submit-slot input[type="submit"],
+.submit-slot button {
+  width: 100%;
+  padding: 12px;
+  background: #003366;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.submit-slot input[type="submit"]:hover,
+.submit-slot button:hover {
+  background: #004080;
+}
+
+/* ── Footer ──────────────────────────────────────────────────────────────── */
+
+.support-footer {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 13px;
+  color: #888;
+}
+
+.support-footer a {
+  color: #003366;
+  text-decoration: none;
+}
+
+.support-footer a:hover {
+  text-decoration: underline;
+}

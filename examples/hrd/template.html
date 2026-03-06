@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ADFS Login – Home Realm Discovery</title>
+  <link rel="stylesheet" href="./styles/main.css">
+</head>
+<body>
+
+  <!--
+    Home Realm Discovery (HRD) page
+    ================================
+    When ADFS is configured with multiple federated identity providers,
+    it shows an HRD page where the user picks their organisation instead
+    of entering username/password directly.
+
+    ADFS renders #hrdArea containing a list of identity provider links.
+    This template moves that list into a branded shell.
+
+    Run:
+      node generator.js examples/hrd/template.html -o examples/hrd/dist/onload.js
+  -->
+
+  <!-- 1. Append our visual shell to body -->
+  <div data-adfs-append-to="body" class="shell" id="customShell">
+    <div class="hrd-card">
+
+      <div class="hrd-logo">
+        <img src="./images/logo.png" alt="Acme Corp">
+      </div>
+
+      <h1 class="hrd-title">Sign in</h1>
+      <p class="hrd-subtitle">Choose your organisation to continue</p>
+
+      <div id="slot-hrd" class="hrd-list"></div>
+
+      <div class="hrd-footer">
+        <p>Need help? Contact <a href="mailto:it@acme.com">IT Support</a></p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 2. Move the real ADFS HRD area into our slot (only if HRD page) -->
+  <div data-adfs-move-to="#hrdArea" data-adfs-into="#slot-hrd" data-adfs-if="#hrdArea"></div>
+
+  <!-- 3. Hide the original ADFS content area -->
+  <div data-adfs-hide="#loginArea" data-adfs-if="#hrdArea"></div>
+
+  <script>
+    document.title = 'Acme Corp \u2013 Choose your organisation';
+  </script>
+
+</body>
+</html>
